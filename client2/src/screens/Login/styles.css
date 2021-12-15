@@ -1,0 +1,10 @@
+.site-layout-content {
+  min-height: 280px;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  padding: 24px;
+  background: #fff;
+}

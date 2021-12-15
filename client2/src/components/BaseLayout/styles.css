@@ -1,0 +1,35 @@
+.site-layout-content {
+  min-height: 280px;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px;
+  background: #fff;
+}
+
+.site-layout-content .top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.site-layout-content .content-container {
+  display: flex;
+  flex: 1;
+}
+
+.site-layout-content .content-container .sub-container {
+    display: flex; 
+    flex: 1; 
+    flex-direction: column;
+}
+
+#components-layout-demo-fixed .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.2);
+}
