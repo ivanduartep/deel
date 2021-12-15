@@ -1,14 +1,30 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const { Op } = require("sequelize");
 const { sequelize } = require("./model");
 const { getProfile } = require("./middleware/getProfile");
 const app = express();
 const { isValidDate, uniqueValues } = require("./utils");
 
+app.use(cors());
+app.options("*", cors());
 app.use(bodyParser.json());
 app.set("sequelize", sequelize);
 app.set("models", sequelize.models);
+
+/**
+ * @returns profile by User Id
+ */
+app.post("/login", async (req, res) => {
+  const { id } = req.body;
+  const { Profile } = req.app.get("models");
+  const profile = await Profile.findOne({
+    where: { id },
+  });
+  if (!profile) return res.status(401).end();
+  res.json(profile);
+});
 
 /**
  * @returns contract by id
